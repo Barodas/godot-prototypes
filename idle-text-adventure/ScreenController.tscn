@@ -1,0 +1,1067 @@
+[gd_scene load_steps=6 format=3 uid="uid://bygttyogfx3fy"]
+
+[ext_resource type="Script" path="res://ScreenController.gd" id="1_lb78p"]
+[ext_resource type="Script" path="res://CharacterScreenManager.gd" id="2_hos08"]
+[ext_resource type="Script" path="res://SummaryScreenManager.gd" id="2_igyq7"]
+[ext_resource type="Script" path="res://StorageScreen.gd" id="3_3v1gv"]
+[ext_resource type="PackedScene" uid="uid://okfsmu5lkao6" path="res://InventoryItem.tscn" id="4_6pth3"]
+
+[node name="ScreenController" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lb78p")
+
+[node name="SummaryScreen" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_igyq7")
+
+[node name="GuildHallPanel" type="Panel" parent="SummaryScreen"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 160.0
+offset_bottom = 110.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SummaryScreen/GuildHallPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Name" type="Label" parent="SummaryScreen/GuildHallPanel/VBoxContainer"]
+layout_mode = 2
+text = "<# Guild Hall #>"
+horizontal_alignment = 1
+
+[node name="Level" type="Label" parent="SummaryScreen/GuildHallPanel/VBoxContainer"]
+layout_mode = 2
+text = "Level: 0"
+
+[node name="Button" type="Button" parent="SummaryScreen/GuildHallPanel/VBoxContainer"]
+layout_mode = 2
+text = "> Guild Hall"
+
+[node name="MapsPanel" type="Panel" parent="SummaryScreen"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 120.0
+offset_right = 160.0
+offset_bottom = 220.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SummaryScreen/MapsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Name" type="Label" parent="SummaryScreen/MapsPanel/VBoxContainer"]
+layout_mode = 2
+text = "<# Maps #>"
+horizontal_alignment = 1
+
+[node name="Info" type="Label" parent="SummaryScreen/MapsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Info"
+
+[node name="Button" type="Button" parent="SummaryScreen/MapsPanel/VBoxContainer"]
+layout_mode = 2
+text = "> Maps"
+
+[node name="Character1" type="Panel" parent="SummaryScreen"]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 10.0
+offset_right = 350.0
+offset_bottom = 190.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SummaryScreen/Character1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Name" type="Label" parent="SummaryScreen/Character1/VBoxContainer"]
+layout_mode = 2
+text = "Baro"
+horizontal_alignment = 1
+
+[node name="Info" type="Label" parent="SummaryScreen/Character1/VBoxContainer"]
+layout_mode = 2
+text = "Adventurer"
+
+[node name="Button" type="Button" parent="SummaryScreen/Character1/VBoxContainer"]
+layout_mode = 2
+text = "> View
+"
+
+[node name="GuildHallScreen" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NavigationPanel" type="Panel" parent="GuildHallScreen"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 170.0
+offset_bottom = 60.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GuildHallScreen/NavigationPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.5
+offset_top = -15.5
+offset_right = 71.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="ButtonBack" type="Button" parent="GuildHallScreen/NavigationPanel/HBoxContainer"]
+layout_mode = 2
+text = "< Back"
+
+[node name="ButtonReturn" type="Button" parent="GuildHallScreen/NavigationPanel/HBoxContainer"]
+layout_mode = 2
+text = "^ Return"
+
+[node name="ProgressPanel" type="Panel" parent="GuildHallScreen"]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 10.0
+offset_right = 1140.0
+offset_bottom = 60.0
+
+[node name="Contents" type="Label" parent="GuildHallScreen/ProgressPanel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = -13.0
+offset_right = -10.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Req. for next level: something"
+
+[node name="GuildLevelPanel" type="Panel" parent="GuildHallScreen"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 70.0
+offset_right = 210.0
+offset_bottom = 110.0
+
+[node name="Level" type="Label" parent="GuildHallScreen/GuildLevelPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Guild Hall Level: 000"
+
+[node name="GuildStatsPanel" type="Panel" parent="GuildHallScreen"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 120.0
+offset_right = 210.0
+offset_bottom = 640.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GuildHallScreen/GuildStatsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="GuildHallScreen/GuildStatsPanel/VBoxContainer"]
+layout_mode = 2
+text = "< Guild Stats >"
+horizontal_alignment = 1
+
+[node name="Gold" type="Label" parent="GuildHallScreen/GuildStatsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Gold: 0000"
+
+[node name="Storage" type="Label" parent="GuildHallScreen/GuildStatsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Storage Cap: 000 / 000"
+
+[node name="Info" type="Label" parent="GuildHallScreen/GuildStatsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Info"
+
+[node name="Info2" type="Label" parent="GuildHallScreen/GuildStatsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Other Info"
+
+[node name="StorageFeature" type="Panel" parent="GuildHallScreen"]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 70.0
+offset_right = 420.0
+offset_bottom = 230.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GuildHallScreen/StorageFeature"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Name" type="Label" parent="GuildHallScreen/StorageFeature/VBoxContainer"]
+layout_mode = 2
+text = "Storage"
+horizontal_alignment = 1
+
+[node name="Info" type="Label" parent="GuildHallScreen/StorageFeature/VBoxContainer"]
+layout_mode = 2
+text = "Info"
+
+[node name="Button" type="Button" parent="GuildHallScreen/StorageFeature/VBoxContainer"]
+layout_mode = 2
+text = "> View"
+
+[node name="MapSummaryScreen" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NavigationPanel" type="Panel" parent="MapSummaryScreen"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 170.0
+offset_bottom = 60.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MapSummaryScreen/NavigationPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.5
+offset_top = -15.5
+offset_right = 71.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="ButtonBack" type="Button" parent="MapSummaryScreen/NavigationPanel/HBoxContainer"]
+layout_mode = 2
+text = "< Back"
+
+[node name="ButtonReturn" type="Button" parent="MapSummaryScreen/NavigationPanel/HBoxContainer"]
+layout_mode = 2
+text = "^ Return"
+
+[node name="Map1" type="Panel" parent="MapSummaryScreen"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 70.0
+offset_right = 190.0
+offset_bottom = 220.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MapSummaryScreen/Map1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Name" type="Label" parent="MapSummaryScreen/Map1/VBoxContainer"]
+layout_mode = 2
+text = "Meadows"
+horizontal_alignment = 1
+
+[node name="Info" type="Label" parent="MapSummaryScreen/Map1/VBoxContainer"]
+layout_mode = 2
+text = "Info"
+
+[node name="Button" type="Button" parent="MapSummaryScreen/Map1/VBoxContainer"]
+layout_mode = 2
+text = "> View"
+
+[node name="StorageScreen" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_3v1gv")
+
+[node name="NavigationPanel" type="Panel" parent="StorageScreen"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 170.0
+offset_bottom = 60.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StorageScreen/NavigationPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.5
+offset_top = -15.5
+offset_right = 71.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="ButtonBack" type="Button" parent="StorageScreen/NavigationPanel/HBoxContainer"]
+layout_mode = 2
+text = "< Back"
+
+[node name="ButtonReturn" type="Button" parent="StorageScreen/NavigationPanel/HBoxContainer"]
+layout_mode = 2
+text = "^ Return"
+
+[node name="StatsPanel" type="Panel" parent="StorageScreen"]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 10.0
+offset_right = 680.0
+offset_bottom = 60.0
+
+[node name="Name" type="Label" parent="StorageScreen/StatsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Storage"
+horizontal_alignment = 1
+
+[node name="StorageContents" type="Panel" parent="StorageScreen"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 70.0
+offset_right = 680.0
+offset_bottom = 640.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="StorageScreen/StorageContents"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StorageScreen/StorageContents/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Item" type="PanelContainer" parent="StorageScreen/StorageContents/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StorageScreen/StorageContents/ScrollContainer/VBoxContainer/Item"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Name" type="Label" parent="StorageScreen/StorageContents/ScrollContainer/VBoxContainer/Item/HBoxContainer"]
+layout_mode = 2
+text = "ItemName"
+vertical_alignment = 1
+
+[node name="Amount" type="Label" parent="StorageScreen/StorageContents/ScrollContainer/VBoxContainer/Item/HBoxContainer"]
+layout_mode = 2
+text = "000"
+vertical_alignment = 1
+
+[node name="ButtonTransferAll" type="Button" parent="StorageScreen/StorageContents/ScrollContainer/VBoxContainer/Item/HBoxContainer"]
+layout_mode = 2
+text = "Transfer All >"
+
+[node name="ButtonTransferStack" type="Button" parent="StorageScreen/StorageContents/ScrollContainer/VBoxContainer/Item/HBoxContainer"]
+layout_mode = 2
+text = "Transfer Stack >"
+
+[node name="CharacterSelection" type="Panel" parent="StorageScreen"]
+layout_mode = 0
+offset_left = 690.0
+offset_top = 10.0
+offset_right = 1140.0
+offset_bottom = 60.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StorageScreen/CharacterSelection"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Character1Button" type="Button" parent="StorageScreen/CharacterSelection/HBoxContainer"]
+layout_mode = 2
+text = "CharacterName v"
+
+[node name="CharacterInventory" type="Panel" parent="StorageScreen"]
+layout_mode = 0
+offset_left = 690.0
+offset_top = 70.0
+offset_right = 1140.0
+offset_bottom = 640.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="StorageScreen/CharacterInventory"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StorageScreen/CharacterInventory/ScrollContainer"]
+layout_mode = 2
+
+[node name="Item" type="PanelContainer" parent="StorageScreen/CharacterInventory/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StorageScreen/CharacterInventory/ScrollContainer/VBoxContainer/Item"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Name" type="Label" parent="StorageScreen/CharacterInventory/ScrollContainer/VBoxContainer/Item/HBoxContainer"]
+layout_mode = 2
+text = "ItemName"
+vertical_alignment = 1
+
+[node name="Amount" type="Label" parent="StorageScreen/CharacterInventory/ScrollContainer/VBoxContainer/Item/HBoxContainer"]
+layout_mode = 2
+text = "000"
+vertical_alignment = 1
+
+[node name="ButtonTransferAll" type="Button" parent="StorageScreen/CharacterInventory/ScrollContainer/VBoxContainer/Item/HBoxContainer"]
+layout_mode = 2
+text = "< Transfer All"
+
+[node name="ButtonTransferStack" type="Button" parent="StorageScreen/CharacterInventory/ScrollContainer/VBoxContainer/Item/HBoxContainer"]
+layout_mode = 2
+text = "< Transfer Stack"
+
+[node name="CraftingScreen" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NavigationPanel" type="Panel" parent="CraftingScreen"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 170.0
+offset_bottom = 60.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CraftingScreen/NavigationPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.5
+offset_top = -15.5
+offset_right = 71.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="ButtonBack" type="Button" parent="CraftingScreen/NavigationPanel/HBoxContainer"]
+layout_mode = 2
+text = "< Back"
+
+[node name="ButtonReturn" type="Button" parent="CraftingScreen/NavigationPanel/HBoxContainer"]
+layout_mode = 2
+text = "^ Return"
+
+[node name="TopPanel" type="Panel" parent="CraftingScreen"]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 10.0
+offset_right = 1140.0
+offset_bottom = 60.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CraftingScreen/TopPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="CraftingStationTab" type="PanelContainer" parent="CraftingScreen/TopPanel/HBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CraftingScreen/TopPanel/HBoxContainer/CraftingStationTab"]
+layout_mode = 2
+text = "Crafting Station"
+
+[node name="RefineryTab" type="PanelContainer" parent="CraftingScreen/TopPanel/HBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CraftingScreen/TopPanel/HBoxContainer/RefineryTab"]
+layout_mode = 2
+text = "Refinery"
+
+[node name="StatsPanel" type="Panel" parent="CraftingScreen"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 70.0
+offset_right = 210.0
+offset_bottom = 640.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CraftingScreen/StatsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="CraftingScreen/StatsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Stats"
+horizontal_alignment = 1
+
+[node name="CharactersPanel" type="Panel" parent="CraftingScreen"]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 70.0
+offset_right = 320.0
+offset_bottom = 640.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CraftingScreen/CharactersPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Character1" type="PanelContainer" parent="CraftingScreen/CharactersPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CraftingScreen/CharactersPanel/VBoxContainer/Character1"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="CraftingScreen/CharactersPanel/VBoxContainer/Character1/VBoxContainer"]
+layout_mode = 2
+text = "Char Name"
+
+[node name="Info" type="Label" parent="CraftingScreen/CharactersPanel/VBoxContainer/Character1/VBoxContainer"]
+layout_mode = 2
+text = "Info"
+
+[node name="Button" type="Button" parent="CraftingScreen/CharactersPanel/VBoxContainer/Character1/VBoxContainer"]
+layout_mode = 2
+text = "> View"
+
+[node name="RecipesPanel" type="Panel" parent="CraftingScreen"]
+layout_mode = 0
+offset_left = 330.0
+offset_top = 70.0
+offset_right = 530.0
+offset_bottom = 640.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CraftingScreen/RecipesPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CraftingScreen/RecipesPanel/ScrollContainer"]
+layout_mode = 2
+
+[node name="Recipe1" type="PanelContainer" parent="CraftingScreen/RecipesPanel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CraftingScreen/RecipesPanel/ScrollContainer/VBoxContainer/Recipe1"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Name" type="Label" parent="CraftingScreen/RecipesPanel/ScrollContainer/VBoxContainer/Recipe1/HBoxContainer"]
+layout_mode = 2
+text = "RecipeName"
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CraftingScreen/RecipesPanel/ScrollContainer/VBoxContainer/Recipe1/HBoxContainer"]
+layout_mode = 2
+text = "Select >"
+
+[node name="ContentPanel" type="Panel" parent="CraftingScreen"]
+layout_mode = 0
+offset_left = 540.0
+offset_top = 70.0
+offset_right = 1140.0
+offset_bottom = 430.0
+
+[node name="LogPanel" type="Panel" parent="CraftingScreen"]
+layout_mode = 0
+offset_left = 540.0
+offset_top = 440.0
+offset_right = 1140.0
+offset_bottom = 640.0
+
+[node name="Character1Screen" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_hos08")
+character_id = "character1"
+
+[node name="NavigationPanel" type="Panel" parent="Character1Screen"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 170.0
+offset_bottom = 60.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Character1Screen/NavigationPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.5
+offset_top = -15.5
+offset_right = 71.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="ButtonBack" type="Button" parent="Character1Screen/NavigationPanel/HBoxContainer"]
+layout_mode = 2
+text = "< Back"
+
+[node name="ButtonReturn" type="Button" parent="Character1Screen/NavigationPanel/HBoxContainer"]
+layout_mode = 2
+text = "^ Return"
+
+[node name="NamePanel" type="Panel" parent="Character1Screen"]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 10.0
+offset_right = 450.0
+offset_bottom = 60.0
+
+[node name="Name" type="Label" parent="Character1Screen/NamePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Baro"
+horizontal_alignment = 1
+
+[node name="StatsPanel" type="Panel" parent="Character1Screen"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 70.0
+offset_right = 230.0
+offset_bottom = 640.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Character1Screen/StatsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Character1Screen/StatsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Stats"
+horizontal_alignment = 1
+
+[node name="Stats" type="Label" parent="Character1Screen/StatsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Level: 1"
+
+[node name="EquipmentPanel" type="Panel" parent="Character1Screen"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 70.0
+offset_right = 450.0
+offset_bottom = 640.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Character1Screen/EquipmentPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WeaponSlot" type="PanelContainer" parent="Character1Screen/EquipmentPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Character1Screen/EquipmentPanel/VBoxContainer/WeaponSlot"]
+layout_mode = 2
+
+[node name="SlotName" type="Label" parent="Character1Screen/EquipmentPanel/VBoxContainer/WeaponSlot/HBoxContainer"]
+layout_mode = 2
+text = "Weapon:"
+
+[node name="ItemName" type="Label" parent="Character1Screen/EquipmentPanel/VBoxContainer/WeaponSlot/HBoxContainer"]
+layout_mode = 2
+text = "ItemName"
+
+[node name="UnequipButton" type="Button" parent="Character1Screen/EquipmentPanel/VBoxContainer/WeaponSlot/HBoxContainer"]
+layout_mode = 2
+text = ">"
+
+[node name="ActionsPanel" type="Panel" parent="Character1Screen"]
+layout_mode = 0
+offset_left = 460.0
+offset_top = 10.0
+offset_right = 680.0
+offset_bottom = 640.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Character1Screen/ActionsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Character1Screen/ActionsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Actions"
+horizontal_alignment = 1
+
+[node name="ActionLabel" type="Label" parent="Character1Screen/ActionsPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="RestButton" type="Button" parent="Character1Screen/ActionsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Rest"
+
+[node name="FightButton" type="Button" parent="Character1Screen/ActionsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Fight"
+
+[node name="GatherButton" type="Button" parent="Character1Screen/ActionsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Gather"
+
+[node name="GuildHallButton" type="Button" parent="Character1Screen/ActionsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Go to Guild Hall"
+
+[node name="MeadowsButton" type="Button" parent="Character1Screen/ActionsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Go to Meadows"
+
+[node name="InventoryPanel" type="Panel" parent="Character1Screen"]
+layout_mode = 0
+offset_left = 690.0
+offset_top = 10.0
+offset_right = 1140.0
+offset_bottom = 430.0
+
+[node name="Title" type="Label" parent="Character1Screen/InventoryPanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Inventory"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Character1Screen/InventoryPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InventoryContents" type="VBoxContainer" parent="Character1Screen/InventoryPanel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Item" parent="Character1Screen/InventoryPanel/ScrollContainer/InventoryContents" instance=ExtResource("4_6pth3")]
+layout_mode = 2
+
+[node name="LogPanel" type="Panel" parent="Character1Screen"]
+layout_mode = 0
+offset_left = 690.0
+offset_top = 440.0
+offset_right = 1140.0
+offset_bottom = 640.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Character1Screen/LogPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LogContents" type="VBoxContainer" parent="Character1Screen/LogPanel/ScrollContainer"]
+layout_mode = 2
+
+[node name="MapScreen" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NavigationPanel" type="Panel" parent="MapScreen"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 170.0
+offset_bottom = 60.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MapScreen/NavigationPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.5
+offset_top = -15.5
+offset_right = 71.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="ButtonBack" type="Button" parent="MapScreen/NavigationPanel/HBoxContainer"]
+layout_mode = 2
+text = "< Back"
+
+[node name="ButtonReturn" type="Button" parent="MapScreen/NavigationPanel/HBoxContainer"]
+layout_mode = 2
+text = "^ Return"
+
+[node name="MapNamePanel" type="Panel" parent="MapScreen"]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 10.0
+offset_right = 540.0
+offset_bottom = 60.0
+
+[node name="Name" type="Label" parent="MapScreen/MapNamePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.5
+offset_top = -13.0
+offset_right = 42.5
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Map Name"
+
+[node name="MapContentsPanel" type="Panel" parent="MapScreen"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 70.0
+offset_right = 540.0
+offset_bottom = 640.0
+
+[node name="Contents1" type="Panel" parent="MapScreen/MapContentsPanel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 260.0
+offset_bottom = 100.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MapScreen/MapContentsPanel/Contents1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Name" type="Label" parent="MapScreen/MapContentsPanel/Contents1/VBoxContainer"]
+layout_mode = 2
+text = "Content Name"
+horizontal_alignment = 1
+
+[node name="Info" type="Label" parent="MapScreen/MapContentsPanel/Contents1/VBoxContainer"]
+layout_mode = 2
+text = "Content Info"
+
+[node name="Button" type="Button" parent="MapScreen/MapContentsPanel/Contents1/VBoxContainer"]
+layout_mode = 2
+text = "> View"
+
+[node name="CharacterListPanel" type="Panel" parent="MapScreen"]
+layout_mode = 0
+offset_left = 550.0
+offset_top = 10.0
+offset_right = 680.0
+offset_bottom = 640.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MapScreen/CharacterListPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Character1" type="PanelContainer" parent="MapScreen/CharacterListPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MapScreen/CharacterListPanel/VBoxContainer/Character1"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MapScreen/CharacterListPanel/VBoxContainer/Character1/MarginContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="MapScreen/CharacterListPanel/VBoxContainer/Character1/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "CharacterName"
+horizontal_alignment = 1
+
+[node name="Info" type="Label" parent="MapScreen/CharacterListPanel/VBoxContainer/Character1/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Info"
+
+[node name="Button" type="Button" parent="MapScreen/CharacterListPanel/VBoxContainer/Character1/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "> View"
+
+[node name="ContextPanel" type="Panel" parent="MapScreen"]
+layout_mode = 0
+offset_left = 690.0
+offset_top = 10.0
+offset_right = 1140.0
+offset_bottom = 430.0
+
+[node name="LogPanel" type="Panel" parent="MapScreen"]
+layout_mode = 0
+offset_left = 690.0
+offset_top = 440.0
+offset_right = 1140.0
+offset_bottom = 640.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MapScreen/LogPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LogContents" type="VBoxContainer" parent="MapScreen/LogPanel/ScrollContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="SummaryScreen/GuildHallPanel/VBoxContainer/Button" to="." method="change_screen" binds= ["guild"]]
+[connection signal="pressed" from="SummaryScreen/MapsPanel/VBoxContainer/Button" to="." method="change_screen" binds= ["maps"]]
+[connection signal="pressed" from="SummaryScreen/Character1/VBoxContainer/Button" to="." method="change_screen" binds= ["character1"]]
+[connection signal="pressed" from="GuildHallScreen/NavigationPanel/HBoxContainer/ButtonBack" to="." method="back_screen"]
+[connection signal="pressed" from="GuildHallScreen/NavigationPanel/HBoxContainer/ButtonReturn" to="." method="return_screen"]
+[connection signal="pressed" from="GuildHallScreen/StorageFeature/VBoxContainer/Button" to="." method="change_screen" binds= ["storage"]]
+[connection signal="pressed" from="MapSummaryScreen/NavigationPanel/HBoxContainer/ButtonBack" to="." method="back_screen"]
+[connection signal="pressed" from="MapSummaryScreen/NavigationPanel/HBoxContainer/ButtonReturn" to="." method="return_screen"]
+[connection signal="pressed" from="MapSummaryScreen/Map1/VBoxContainer/Button" to="." method="change_screen" binds= ["map"]]
+[connection signal="pressed" from="StorageScreen/NavigationPanel/HBoxContainer/ButtonBack" to="." method="back_screen"]
+[connection signal="pressed" from="StorageScreen/NavigationPanel/HBoxContainer/ButtonReturn" to="." method="return_screen"]
+[connection signal="pressed" from="CraftingScreen/NavigationPanel/HBoxContainer/ButtonBack" to="." method="back_screen"]
+[connection signal="pressed" from="CraftingScreen/NavigationPanel/HBoxContainer/ButtonReturn" to="." method="return_screen"]
+[connection signal="pressed" from="Character1Screen/NavigationPanel/HBoxContainer/ButtonBack" to="." method="back_screen"]
+[connection signal="pressed" from="Character1Screen/NavigationPanel/HBoxContainer/ButtonReturn" to="." method="return_screen"]
+[connection signal="pressed" from="MapScreen/NavigationPanel/HBoxContainer/ButtonBack" to="." method="back_screen"]
+[connection signal="pressed" from="MapScreen/NavigationPanel/HBoxContainer/ButtonReturn" to="." method="return_screen"]
+
+[editable path="Character1Screen/InventoryPanel/ScrollContainer/InventoryContents/Item"]

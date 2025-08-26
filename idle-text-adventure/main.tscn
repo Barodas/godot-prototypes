@@ -1,0 +1,188 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdfhqbr008jf"]
+
+[ext_resource type="Script" path="res://Scripts/CharacterListPanel.gd" id="2_gv3m8"]
+[ext_resource type="Script" path="res://Scripts/CharacterInfoPanel.gd" id="3_kjkyn"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftMenu" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/LeftMenu"]
+layout_mode = 2
+
+[node name="AccountStats" type="MarginContainer" parent="HBoxContainer/LeftMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/LeftMenu/VBoxContainer/AccountStats"]
+layout_mode = 2
+
+[node name="Label_Title" type="Label" parent="HBoxContainer/LeftMenu/VBoxContainer/AccountStats/VBoxContainer"]
+layout_mode = 2
+text = "Account Stats"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Label_AccountLevel" type="Label" parent="HBoxContainer/LeftMenu/VBoxContainer/AccountStats/VBoxContainer"]
+layout_mode = 2
+text = "Account Level: 000"
+
+[node name="Button_Feed" type="Button" parent="HBoxContainer/LeftMenu/VBoxContainer"]
+layout_mode = 2
+text = "Feed"
+
+[node name="Button_Guild" type="Button" parent="HBoxContainer/LeftMenu/VBoxContainer"]
+layout_mode = 2
+text = "Guild"
+
+[node name="Button_Characters" type="Button" parent="HBoxContainer/LeftMenu/VBoxContainer"]
+layout_mode = 2
+text = "Characters"
+
+[node name="CharacterPanel" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/CharacterPanel"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="CharacterList" type="VBoxContainer" parent="HBoxContainer/CharacterPanel/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label_Title" type="Label" parent="HBoxContainer/CharacterPanel/HBoxContainer/CharacterList"]
+layout_mode = 2
+text = "Characters"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/CharacterPanel/HBoxContainer/CharacterList"]
+layout_mode = 2
+
+[node name="Button_Adventurers" type="Button" parent="HBoxContainer/CharacterPanel/HBoxContainer/CharacterList/HBoxContainer"]
+layout_mode = 2
+text = "Adventurers"
+
+[node name="Button_Townspeople" type="Button" parent="HBoxContainer/CharacterPanel/HBoxContainer/CharacterList/HBoxContainer"]
+layout_mode = 2
+text = "Townspeople"
+
+[node name="List_Adventurers" type="VBoxContainer" parent="HBoxContainer/CharacterPanel/HBoxContainer/CharacterList"]
+layout_mode = 2
+
+[node name="Character" type="MarginContainer" parent="HBoxContainer/CharacterPanel/HBoxContainer/CharacterList/List_Adventurers"]
+layout_mode = 2
+script = ExtResource("2_gv3m8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/CharacterPanel/HBoxContainer/CharacterList/List_Adventurers/Character"]
+layout_mode = 2
+
+[node name="Label_Name" type="Label" parent="HBoxContainer/CharacterPanel/HBoxContainer/CharacterList/List_Adventurers/Character/VBoxContainer"]
+layout_mode = 2
+text = "<characterName>"
+horizontal_alignment = 1
+
+[node name="Label_Info" type="Label" parent="HBoxContainer/CharacterPanel/HBoxContainer/CharacterList/List_Adventurers/Character/VBoxContainer"]
+layout_mode = 2
+text = "Level: <characterLevel>
+Class: <class>
+Status: <characterStatus>"
+
+[node name="List_Townspeople" type="VBoxContainer" parent="HBoxContainer/CharacterPanel/HBoxContainer/CharacterList"]
+visible = false
+layout_mode = 2
+
+[node name="Character" type="MarginContainer" parent="HBoxContainer/CharacterPanel/HBoxContainer/CharacterList/List_Townspeople"]
+layout_mode = 2
+script = ExtResource("2_gv3m8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/CharacterPanel/HBoxContainer/CharacterList/List_Townspeople/Character"]
+layout_mode = 2
+
+[node name="Label_Name" type="Label" parent="HBoxContainer/CharacterPanel/HBoxContainer/CharacterList/List_Townspeople/Character/VBoxContainer"]
+layout_mode = 2
+text = "<characterName>"
+horizontal_alignment = 1
+
+[node name="Label_Info" type="Label" parent="HBoxContainer/CharacterPanel/HBoxContainer/CharacterList/List_Townspeople/Character/VBoxContainer"]
+layout_mode = 2
+text = "Level: <characterLevel>
+Class: <class>
+Status: <characterStatus>"
+
+[node name="CharacterPanel" type="HBoxContainer" parent="HBoxContainer/CharacterPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("3_kjkyn")
+
+[node name="CharacterStats" type="VBoxContainer" parent="HBoxContainer/CharacterPanel/HBoxContainer/CharacterPanel"]
+layout_mode = 2
+
+[node name="Label_Title" type="Label" parent="HBoxContainer/CharacterPanel/HBoxContainer/CharacterPanel/CharacterStats"]
+layout_mode = 2
+text = "Stats"
+horizontal_alignment = 1
+
+[node name="Label_Info" type="Label" parent="HBoxContainer/CharacterPanel/HBoxContainer/CharacterPanel/CharacterStats"]
+layout_mode = 2
+text = "XP: <currentXp>/<levelUpXp>
+Health: <health>/<maxHealth>
+Mana: <mana>/<maxMana>
+Str: <strength>
+"
+
+[node name="CharacterLog" type="VBoxContainer" parent="HBoxContainer/CharacterPanel/HBoxContainer/CharacterPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label_Title" type="Label" parent="HBoxContainer/CharacterPanel/HBoxContainer/CharacterPanel/CharacterLog"]
+layout_mode = 2
+text = "Log"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/CharacterPanel/HBoxContainer/CharacterPanel/CharacterLog"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/CharacterPanel/HBoxContainer/CharacterPanel/CharacterLog/ScrollContainer"]
+layout_mode = 2
+
+[node name="Label_Info" type="Label" parent="HBoxContainer/CharacterPanel/HBoxContainer/CharacterPanel/CharacterLog/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "<logEntry02>
+<logEntry01>
+what  happens  when you have an extra  long log message 
+that extends beyond the view"

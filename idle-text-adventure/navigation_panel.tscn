@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bnu3iak43kml8"]
+
+[node name="NavigationPanel" type="Panel"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 170.0
+offset_bottom = 60.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.5
+offset_top = -15.5
+offset_right = 71.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="ButtonBack" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "< Back"
+
+[node name="ButtonReturn" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "^ Return"
